@@ -55,7 +55,7 @@ export const ContactSection = () => {
     }
   };
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="contact" className="min-h-screen flex items-center justify-center py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary">Touch</span>
@@ -68,18 +68,17 @@ export const ContactSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
+            <h3 className="text-2xl font-semibold mb-6 text-center">
               {" "}
               Contact Information
             </h3>
 
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
+            <div className="space-y-8 flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center space-y-2">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />{" "}
                 </div>
-                <div>
-                  <h4 className="font-medium"> Email</h4>
+                <div className="text-center">
                   <a
                     href="mailto:contact.businessvolunteers@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -88,12 +87,12 @@ export const ContactSection = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              
+              <div className="flex flex-col items-center space-y-2">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Phone className="h-6 w-6 text-primary" />{" "}
                 </div>
-                <div>
-                  <h4 className="font-medium"> Phone</h4>
+                <div className="text-center">
                   <a
                     href="tel:+918586989832"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -102,12 +101,12 @@ export const ContactSection = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              
+              <div className="flex flex-col items-center space-y-2">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Instagram className="h-6 w-6 text-primary" />{" "}
                 </div>
-                <div>
-                  <h4 className="font-medium"> Instagram</h4>
+                <div className="text-center">
                   <a
                     href="https://instagram.com/thebusinessvolunteers"
                     target="_blank"
@@ -121,7 +120,7 @@ export const ContactSection = () => {
             </div>
 
             <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
+              <h4 className="font-medium mb-4 text-center"> Connect With Us</h4>
               <div className="flex space-x-4 justify-center">
                 <a 
                   href="https://www.linkedin.com/company/business-volunteers1/" 

@@ -3,7 +3,6 @@ import { useTheme } from "@/hooks/useTheme";
 
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
-  const [rockets, setRockets] = useState([]);
   const [shootingStars, setShootingStars] = useState([]);
   const isDarkMode = useTheme();
 
@@ -39,28 +38,7 @@ export const StarBackground = () => {
     setStars(newStars);
   }, []);
 
-  const generateRockets = useCallback(() => {
-    const numberOfRockets = 3;
-    const newRockets = [];
-
-    for (let i = 0; i < numberOfRockets; i++) {
-      const direction = Math.random() > 0.5 ? 'right' : 'left';
-      const path = Math.random() > 0.5 ? 'straight' : 'curved';
-      
-      newRockets.push({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        delay: Math.random() * 10 + 5,
-        duration: Math.random() * 15 + 10,
-        direction,
-        path,
-        // Add CSS class for animation
-        animationClass: `rocket-${direction}-${path}`
-      });
-    }
-    setRockets(newRockets);
-  }, []);
+  // Rocket generation removed
 
   const generateShootingStars = useCallback(() => {
     // Maximum 2 shooting stars at a time
@@ -97,7 +75,6 @@ export const StarBackground = () => {
 
   useEffect(() => {
     generateStars();
-    generateRockets();
     generateShootingStars();
 
     const handleResize = () => {
@@ -105,7 +82,6 @@ export const StarBackground = () => {
       clearTimeout(window.resizeTimeout);
       window.resizeTimeout = setTimeout(() => {
         generateStars();
-        generateRockets();
         generateShootingStars();
       }, 100);
     };
@@ -115,21 +91,9 @@ export const StarBackground = () => {
       window.removeEventListener("resize", handleResize);
       clearTimeout(window.resizeTimeout);
     };
-  }, [generateStars, generateRockets, generateShootingStars]);
+  }, [generateStars, generateShootingStars]);
 
-  // Get theme-appropriate rocket colors
-  const getRocketColors = useCallback((isDark) => ({
-    body: isDark 
-      ? 'linear-gradient(to top, #4a5568, #2d3748, #1a202c)'
-      : 'linear-gradient(to top, #9ca3af, #e5e7eb, #ffffff)',
-    window: isDark ? 'rgba(96, 165, 250, 0.6)' : '#60a5fa',
-    fins: isDark ? '#e53e3e' : '#ef4444',
-    flame: isDark 
-      ? 'linear-gradient(to bottom, rgba(251, 191, 36, 0.8), rgba(249, 115, 22, 0.7), rgba(220, 38, 38, 0.6))'
-      : 'linear-gradient(to bottom, #fbbf24, #f97316, #dc2626)'
-  }), []);
-
-  const rocketColors = getRocketColors(isDarkMode);
+  // Rocket colors removed
 
   const getStarColor = (color) => {
     switch(color) {
@@ -162,70 +126,7 @@ export const StarBackground = () => {
         );
       })}
 
-      {/* Floating Rockets - Only visible in dark mode */}
-      {isDarkMode && rockets.map((rocket) => {
-        return (
-          <div
-            key={`rocket-${rocket.id}`}
-            className={`absolute ${rocket.animationClass}`}
-            style={{
-              left: rocket.x + "%",
-              top: rocket.y + "%",
-            }}
-          >
-            <div className="relative">
-              {/* Rocket Body - Dark theme appropriate colors */}
-              <div 
-                className="w-8 h-12 rounded-t-full rounded-b-sm relative"
-                style={{
-                  background: rocketColors.body,
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
-                }}
-              >
-                {/* Rocket Window */}
-                <div 
-                  className="absolute top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full"
-                  style={{
-                    backgroundColor: rocketColors.window,
-                    boxShadow: 'inset 0 1px 2px rgba(255, 255, 255, 0.2)'
-                  }}
-                ></div>
-                {/* Rocket Fins */}
-                <div 
-                  className="absolute bottom-0 -left-1 w-2 h-3 rounded-bl-lg"
-                  style={{
-                    backgroundColor: rocketColors.fins,
-                    opacity: 0.8
-                  }}
-                ></div>
-                <div 
-                  className="absolute bottom-0 -right-1 w-2 h-3 rounded-br-lg"
-                  style={{
-                    backgroundColor: rocketColors.fins,
-                    opacity: 0.8
-                  }}
-                ></div>
-              </div>
-              {/* Rocket Flame - Muted for dark theme */}
-              <div 
-                className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full animate-pulse"
-                style={{
-                  background: rocketColors.flame,
-                  opacity: 0.7
-                }}
-              ></div>
-              {/* Trail particles */}
-              <div 
-                className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full animate-ping"
-                style={{
-                  backgroundColor: 'rgba(251, 191, 36, 0.6)',
-                  opacity: 0.6
-                }}
-              ></div>
-            </div>
-          </div>
-        );
-      })}
+      {/* Rockets removed */}
 
       {/* Shooting Stars - Enhanced in dark mode */}
       {shootingStars.map((shootingStar) => {

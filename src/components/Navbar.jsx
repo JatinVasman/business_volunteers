@@ -113,7 +113,7 @@ export const Navbar = () => {
           <img
             src="/logo/Weblogo.png"
             alt="Harsh Portfolio Logo"
-            className="h-10 w-auto object-contain dark:brightness-110"
+            className="h-16 w-auto object-contain dark:brightness-110"
           />
         </button>
 
@@ -208,6 +208,7 @@ export const Navbar = () => {
                 {item.name}
               </button>
             ))}
+
           </div>
 
           {/* Mobile Menu Background Decoration */}

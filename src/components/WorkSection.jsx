@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function WorkSection() {
   const [filter, setFilter] = useState("all");
 
-  const filters = ["all", "posters", "cgi", "analytics"];
+  const filters = ["all", "posters", "cgi", "analytics", "logo"];
   const active = (val) =>
     filter === val ? "bg-white text-black" : "bg-black text-white";
 
@@ -24,7 +24,9 @@ export default function WorkSection() {
               ? "Posters & Designs"
               : f === "cgi"
               ? "CGI"
-              : "Data Analytics"}
+              : f === "analytics"
+              ? "Data Analytics"
+              : "Logo"}
           </button>
         ))}
       </div>
@@ -53,15 +55,13 @@ export default function WorkSection() {
               desc: "Minimalist concept art design for a fictional service.",
               file: "thumbnail-design2.jpg",
             },
-          ].map(({ title, desc, file }, i) => (
-            <div key={i} className="flex flex-col items-center text-center">
-              <h4 className="text-lg font-semibold mb-2">{title}</h4>
+          ].map(({ file }, i) => (
+            <div key={i} className="flex flex-col items-center">
               <img
                 src={`/images/${file}`}
-                alt={title}
+                alt={`Design ${i + 1}`}
                 className="rounded-xl shadow-md w-full max-w-md object-cover transition-transform duration-300 hover:scale-105"
               />
-              <p className="text-sm text-gray-500 mt-2">{desc}</p>
             </div>
           ))}
         </div>
@@ -76,13 +76,13 @@ export default function WorkSection() {
               {
                 title: "Visual Summary",
                 src: "/videos/motorola-sales-v1.mp4",
-                poster: "/thumbnails/data-analytics-thumbnail.jpg",
+                poster: "/thumbnails/data-analytics-thumbnail1.jpg",
                 desc: "Concise dashboard highlighting Motorola's key metrics.",
               },
               {
                 title: "Detailed Walkthrough",
                 src: "/videos/motorola-sales-v2.mp4",
-                poster: "/thumbnails/data-analytics-thumbnail.jpg",
+                poster: "/thumbnails/data-analytics-thumbnail2.jpg",
                 desc: "Step-by-step breakdown of raw data turned into insights.",
               },
             ].map(({ title, src, poster, desc }, i) => (
@@ -111,15 +111,15 @@ export default function WorkSection() {
             {[
               {
                 title: "CGI Rocket Launch",
-                src: "`public/videos/CGI-video1.mp4`",
+                src: "public/videos/CGI-video1.mp4",
                 poster: "/thumbnails/CGI1-thumbnail.jpg",
                 desc: "Animated rocket launch sequence built with CGI.",
               },
               {
-                title: "CGI Planet Flythrough",
-                src: "`public/videos/CGI-video2.mp4`",
+                title: "CGI Flythrough",
+                src: "public/videos/CGI-video2.mp4",
                 poster: "/thumbnails/CGI2-thumbnail.jpg",
-                desc: "Cinematic flyover of a 3D-modeled alien planet.",
+                desc: "Cinematic flyover With CGI.",
               },
             ].map(({ title, src, poster, desc }, i) => (
               <div key={i} className="flex flex-col items-center text-center">
@@ -135,6 +135,40 @@ export default function WorkSection() {
                 <p className="text-sm text-gray-500 mt-2">{desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* 🖼️ LOGO SHOWCASE */}
+      {(filter === "all" || filter === "logo") && (
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold mb-4">Logos</h3>
+          <div className="flex flex-col gap-10">
+            {/* Top row - 3 logos */}
+            <div className="grid grid-cols-3 gap-10">
+              {["logo1.png", "logo2.png", "logo3.jpg"].map((logo, i) => (
+                <div key={i} className="flex justify-center items-center">
+                  <img
+                    src={`/logo/${logo}`}
+                    alt={`Logo ${i + 1}`}
+                    className="rounded-xl shadow-md w-full max-w-xs object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom row - 2 logos */}
+            <div className="grid grid-cols-2 gap-10">
+              {["logo4.jpg", "Weblogo.png"].map((logo, i) => (
+                <div key={i} className="flex justify-center items-center">
+                  <img
+                    src={`/logo/${logo}`}
+                    alt={`Logo ${i + 4}`}
+                    className="rounded-xl shadow-md w-full max-w-xs object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

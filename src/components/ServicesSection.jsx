@@ -62,7 +62,7 @@ const services = [
   {
     icon: Figma,
     title: "UI Design",
-    description: "Clean, user-centric interface designs using Figma and design systems.",
+    description: "Sophisticated interface designs optimized for usability and design consistency.",
     onClick: () => {
       document.getElementById("work-section")?.scrollIntoView({ behavior: "smooth" });
     }

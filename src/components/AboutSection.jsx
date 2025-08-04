@@ -2,32 +2,31 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-left">
           Who <span className="text-primary">We Are</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <p className="text-lg text-primary mb-6 tracking-wide uppercase font-semibold">
-              Business Volunteers – Turning Your Digital Mess into a Masterpiece
+            <p className="text-lg text-primary mb-6 tracking-wide uppercase font-semibold text-left">
+              Business Volunteers 
             </p>
 
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-left">
               We connect skilled professionals with businesses that need a helping hand.
               Our goal is to give businesses, big or small, the expert support they need
               to grow. Our volunteers offer their time and skills in areas like graphic
-              design, website development, and data analytics — helping create lasting
-              impact for brands and communities alike.
+              design, website development, and data analytics 
             </p>
 
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-left">
               With over 1.5 years of combined experience, we&apos;ve helped local startups,
               independent creators, and social ventures transform their digital presence.
               Our passion lies in making high-quality digital support accessible to all,
               regardless of budget.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a href="#contact" className="cosmic-button">
                 Contact Us
               </a>

@@ -13,6 +13,20 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+
+      {/* WhatsApp Chat Button */}
+      <a
+        href="https://wa.me/918586989832?text=Hi%20I%20found%20your%20website%20interesting!"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 z-50"
+      >
+        <img
+          src="/logo/whatsapp-logo.png"
+          alt="Chat with us on WhatsApp"
+          className="w-[60px] h-[60px] rounded-full shadow-lg hover:scale-105 transition-transform"
+        />
+      </a>
     </>
   );
 }
