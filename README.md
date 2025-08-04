@@ -3,7 +3,7 @@
 <div align="center">
   <br />
   <a href="https://business-volunteers.vercel.app" target="_blank">
-    <img src="/public/images/banner.png" alt="Business Volunteers Banner">
+    <img src="/images/banner.png" alt="Business Volunteers Banner">
   </a>
   <br />
   <div>
