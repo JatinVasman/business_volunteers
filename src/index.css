@@ -1,0 +1,385 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-card: hsl(var(--card));
+
+  --animate-float: /* Star animation classes */
+.star-static {
+  animation: none;
+}
+
+.star-twinkling {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.star-twinkling-slow {
+  animation: twinkle 6s ease-in-out 1s infinite;
+}
+
+.star-twinkling-slower {
+  animation: twinkle 7s ease-in-out 0.5s infinite;
+}-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Enhanced Cosmic Animations */
+  @keyframes twinkle {
+    0%, 100% { 
+      opacity: 0.4; 
+      transform: scale(0.9);
+      filter: brightness(0.9);
+      -webkit-transform: scale(0.9);
+      -webkit-filter: brightness(0.9);
+    }
+    50% { 
+      opacity: 0.8; 
+      transform: scale(1.1);
+      filter: brightness(1.2);
+      -webkit-transform: scale(1.1);
+      -webkit-filter: brightness(1.2);
+    }
+  }
+
+  @keyframes rocket-float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+      transform: translateY(-10px) rotate(2deg); 
+    }
+    75% { 
+      transform: translateY(5px) rotate(-2deg); 
+    }
+  }
+
+  @keyframes shooting-star {
+    0% { 
+      transform: translateX(0) translateY(0) rotate(45deg); 
+      opacity: 0; 
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+      transform: translateX(400px) translateY(400px) rotate(45deg); 
+      opacity: 0; 
+    }
+  }
+
+  @keyframes cosmic-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 30px rgba(139, 92, 246, 0.3);
+    }
+  }
+
+  /* Rocket Animation Keyframes */
+  @keyframes rocket-right-straight {
+    0% { transform: translateX(-100px) rotate(45deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(calc(100vw + 100px)) rotate(45deg); opacity: 0; }
+  }
+
+  @keyframes rocket-left-straight {
+    0% { transform: translateX(calc(100vw + 100px)) rotate(-135deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(-100px) rotate(-135deg); opacity: 0; }
+  }
+
+  @keyframes rocket-right-curved {
+    0% { transform: translateX(-100px) translateY(0px) rotate(45deg); opacity: 0; }
+    10% { opacity: 1; }
+    25% { transform: translateX(25vw) translateY(-50px) rotate(90deg); }
+    50% { transform: translateX(50vw) translateY(-20px) rotate(45deg); }
+    75% { transform: translateX(75vw) translateY(-80px) rotate(0deg); }
+    90% { opacity: 1; }
+    100% { transform: translateX(calc(100vw + 100px)) translateY(-100px) rotate(-45deg); opacity: 0; }
+  }
+
+  @keyframes rocket-left-curved {
+    0% { transform: translateX(calc(100vw + 100px)) translateY(0px) rotate(-135deg); opacity: 0; }
+    10% { opacity: 1; }
+    25% { transform: translateX(75vw) translateY(-50px) rotate(-90deg); }
+    50% { transform: translateX(50vw) translateY(-20px) rotate(-135deg); }
+    75% { transform: translateX(25vw) translateY(-80px) rotate(-180deg); }
+    90% { opacity: 1; }
+    100% { transform: translateX(-100px) translateY(-100px) rotate(-225deg); opacity: 0; }
+  }
+
+  @keyframes shootingStar {
+    0% { 
+      transform: translateX(0) translateY(0) rotate(45deg); 
+      opacity: 0; 
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+      transform: translateX(300px) translateY(300px) rotate(45deg); 
+      opacity: 0; 
+    }
+  }
+
+  @keyframes meteor-shower-1 {
+    0% { 
+      transform: translateX(-100px) translateY(-80px) rotate(30deg); 
+      opacity: 0; 
+    }
+    15% { opacity: 0.8; }
+    85% { opacity: 0.6; }
+    100% { 
+      transform: translateX(350px) translateY(280px) rotate(30deg); 
+      opacity: 0; 
+    }
+  }
+
+  @keyframes meteor-shower-2 {
+    0% { 
+      transform: translateX(-60px) translateY(-120px) rotate(45deg); 
+      opacity: 0; 
+    }
+    20% { opacity: 0.7; }
+    80% { opacity: 0.5; }
+    100% { 
+      transform: translateX(280px) translateY(400px) rotate(45deg); 
+      opacity: 0; 
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+
+    --primary: 250 47% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 8%;
+
+    --primary: 250 65% 65%;
+    --primary-foreground: 213 31% 91%;
+
+    --border: 217 33% 20%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Enhanced cosmic background gradient */
+    background: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  }
+
+  .dark body {
+    background: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                hsl(var(--background));
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5),
+               0 0 20px rgba(167, 139, 250, 0.3),
+               0 0 30px rgba(167, 139, 250, 0.1);
+}
+
+@utility card-hover {
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.1),
+              0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-button:hover {
+  animation: cosmic-glow 2s ease-in-out infinite;
+}
+
+.cosmic-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cosmic-button:hover::before {
+  left: 100%;
+}
+
+/* Enhanced star effects */
+@utility twinkling-star {
+  @apply absolute rounded-full;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@utility floating-rocket {
+  @apply absolute;
+  animation: rocket-float 4s ease-in-out infinite;
+}
+
+@utility shooting-star {
+  @apply absolute w-1 h-1 bg-white rounded-full;
+  animation: shootingStar 3s linear infinite;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced navbar animations */
+.navbar-link {
+  @apply relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300;
+  @apply focus:outline-hidden focus:ring-2 focus:ring-primary/50;
+  @apply hover:text-primary hover:bg-primary/10;
+}
+
+.navbar-link-active {
+  @apply text-primary bg-primary/10 shadow-md;
+}
+
+.mobile-menu-item {
+  @apply text-2xl font-medium transition-all duration-300;
+  @apply focus:outline-hidden focus:ring-2 focus:ring-primary/50 rounded-md px-4 py-2;
+  @apply hover:text-primary hover:scale-110;
+}
+
+/* Star animation classes */
+.star-static {
+  animation: none;
+}
+
+.star-twinkling {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-twinkling-delayed {
+  animation: twinkle 3s ease-in-out 1s infinite;
+}
+
+.star-twinkling-slow {
+  animation: twinkle 4s ease-in-out 0.5s infinite;
+}
+
+/* Rocket animation classes */
+.rocket-right-straight {
+  animation: rocket-right-straight 15s linear 2s infinite;
+}
+
+.rocket-left-straight {
+  animation: rocket-left-straight 18s linear 5s infinite;
+}
+
+.rocket-right-curved {
+  animation: rocket-right-curved 20s linear 8s infinite;
+}
+
+.rocket-left-curved {
+  animation: rocket-left-curved 22s linear 12s infinite;
+}
+
+/* Shooting star animation classes */
+.meteor-1 {
+  animation: meteor-shower-1 10s linear 1s infinite;
+}
+
+.meteor-2 {
+  animation: meteor-shower-2 12s linear 6s infinite;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
