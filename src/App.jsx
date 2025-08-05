@@ -16,7 +16,7 @@ function App() {
 
       {/* WhatsApp Chat Button */}
       <a
-        href="https://wa.me/918586989832?text=Hi%20I%20found%20your%20website%20interesting!"
+        href="https://wa.me/918586989832?text=Hey%20there%21%20I%20saw%20your%20website%20and%20wanted%20to%20chat"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-50"
