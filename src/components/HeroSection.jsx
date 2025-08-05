@@ -3,6 +3,7 @@ export const HeroSection = () => {
     <section
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      aria-label="Hero section introducing Business Volunteers"
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-10"> {/* Increased spacing */}
@@ -12,6 +13,7 @@ export const HeroSection = () => {
               {" "}
               Business Volunteers
             </span>
+            <span className="sr-only"> - Free Creative & Tech Support for Startups</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">

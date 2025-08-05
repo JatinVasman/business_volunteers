@@ -20,10 +20,12 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-50"
+        aria-label="Contact us via WhatsApp for free creative support"
+        title="Chat with Business Volunteers on WhatsApp"
       >
         <img
           src="/logo/whatsapp-logo.png"
-          alt="Chat with us on WhatsApp"
+          alt="Chat with us on WhatsApp for free business support"
           className="w-[60px] h-[60px] rounded-full shadow-lg hover:scale-105 transition-transform"
         />
       </a>

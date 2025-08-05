@@ -3,13 +3,14 @@ import { useState } from "react";
 export default function WorkSection() {
   const [filter, setFilter] = useState("all");
 
-  const filters = ["all", "posters", "cgi", "analytics", "logo"];
+  // Removed CGI from filters
+  const filters = ["all", "posters", "analytics", "logo"];
   const active = (val) =>
     filter === val ? "bg-white text-black" : "bg-black text-white";
 
   return (
-    <section id="work-section" className="py-24 px-4 scroll-mt-20">
-      <h2 className="text-4xl font-bold text-center mb-6">Projects That Reflect <span className="text-primary">Our Passion</span></h2>
+    <section id="work-section" className="py-24 px-4 scroll-mt-20" aria-labelledby="work-section-heading">
+      <h2 id="work-section-heading" className="text-4xl font-bold text-center mb-6">Projects That Reflect <span className="text-primary">Our Passion</span></h2>
 
       <div className="flex justify-center flex-wrap gap-3 mb-10">
         {filters.map((f) => (
@@ -55,11 +56,11 @@ export default function WorkSection() {
               desc: "Minimalist concept art design for a fictional service.",
               file: "thumbnail-design2.jpg",
             },
-          ].map(({ file }, i) => (
+          ].map(({ title, desc, file }, i) => (
             <div key={i} className="flex flex-col items-center">
               <img
                 src={`/images/${file}`}
-                alt={`Design ${i + 1}`}
+                alt={`${title} - ${desc}`}
                 className="rounded-xl shadow-md w-full max-w-md object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -103,8 +104,8 @@ export default function WorkSection() {
         </div>
       )}
 
-      {/* 🧪 CGI SECTION */}
-      {(filter === "all" || filter === "cgi") && (
+      {/* 🧪 CGI SECTION - Commented out as requested */}
+      {/* {(filter === "all" || filter === "cgi") && (
         <div className="mb-16">
           <h3 className="text-2xl font-semibold mb-4">CGI Animation Work</h3>
           <div className="grid gap-10 lg:grid-cols-2">
@@ -137,7 +138,7 @@ export default function WorkSection() {
             ))}
           </div>
         </div>
-      )}
+      )} */}
 
       {/* 🖼️ LOGO SHOWCASE */}
       {(filter === "all" || filter === "logo") && (
@@ -150,8 +151,10 @@ export default function WorkSection() {
                 <div key={i} className="flex justify-center items-center">
                   <img
                     src={`/logo/${logo}`}
-                    alt={`Logo ${i + 1}`}
-                    className="rounded-xl shadow-md w-full max-w-xs object-contain"
+                    alt={logo === "logo1.png" ? "Modern minimalist tech company logo design" : 
+                         logo === "logo2.png" ? "Creative agency brand identity logo" :
+                         "Corporate professional business logo design"}
+                    className="rounded-xl shadow-md w-full max-w-xs object-contain transition-all duration-300 hover:scale-110 hover:shadow-lg hover:brightness-110"
                   />
                 </div>
               ))}
@@ -163,8 +166,9 @@ export default function WorkSection() {
                 <div key={i} className="flex justify-center items-center">
                   <img
                     src={`/logo/${logo}`}
-                    alt={`Logo ${i + 4}`}
-                    className="rounded-xl shadow-md w-full max-w-xs object-contain"
+                    alt={logo === "logo4.jpg" ? "Digital marketing agency brand logo" : 
+                         "Business Volunteers official web logo - free creative support"}
+                    className="rounded-xl shadow-md w-full max-w-xs object-contain transition-all duration-300 hover:scale-110 hover:shadow-lg hover:brightness-110"
                   />
                 </div>
               ))}
